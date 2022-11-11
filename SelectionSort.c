@@ -13,7 +13,7 @@ int buscar(int vet[n], int x){
             return i;
         }
     }
-    return 1;
+    return -1;
 }
 
 void selectionSort(int vet[n]){
@@ -39,7 +39,7 @@ int main(){
         else if(ans == 2){
             int valor;
             printf("\nDigite o valor a ser procurado: "); scanf("%d", &valor);
-            if(buscar(vet, valor) == 1){
+            if(buscar(vet, valor) == -1){
                 printf("\nNúmero não está no vetor!\n");
             }
             else{
