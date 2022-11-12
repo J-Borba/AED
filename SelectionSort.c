@@ -1,5 +1,20 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #define n 10
+
+void printFormatado(char palavra[]){
+    printf("\n");
+    for(int i=0; i<strlen(palavra); i++){
+        printf("-");
+        fflush(stdout);
+    }
+    printf("\n%s\n", palavra);
+    for(int i=0; i<strlen(palavra); i++){
+        printf("-");
+        fflush(stdout);
+    }
+}
 
 void preencher(int vet[n]){
     for(int i=0; i<n; i++){
@@ -30,8 +45,9 @@ void selectionSort(int vet[n]){
 }
 int main(){
     int vet[10], ans;
+    char str[50];
     do{
-        printf("\nDigite a operacao desejada: \n[1]Preencher vetor [2]Buscar por um valor [3]Ordenar o vetor [4]Sair\n");
+        printf("\n\nDigite a operacao desejada: \n[1]Preencher vetor [2]Buscar por um valor [3]Ordenar o vetor [4]Sair\n");
         scanf("%d", &ans);
         if(ans == 1){
             preencher(vet);
@@ -40,19 +56,21 @@ int main(){
             int valor;
             printf("Digite o valor a ser procurado: "); scanf("%d", &valor);
             if(buscar(vet, valor) == -1){
-                printf("\n-------------------------\nNúmero não está no vetor!\n-------------------------");
+                printFormatado("Numero nao esta no vetor!");
             }
             else{
-                printf("\n------------------------\nNumero está na posição %d\n------------------------", buscar(vet, valor));
+                snprintf(str, 50, "O numero esta na posicao: %d", buscar(vet, valor));
+                printFormatado(str);
             }
         }
         else if(ans == 3){
             selectionSort(vet);
+            printFormatado("Vetor Ordenado!");
         }
         else if(ans < 1 || ans > 4){
-            printf("-------------------------------\nFavor digitar uma opção válida!\n-------------------------------");
+            printFormatado("Favor digitar uma opcao valida!");
         }
     } while(ans != 4);
-    printf("-------------------\nPrograma terminado!\n-------------------");
+    printFormatado("Programa terminado!");
     return 0;
 }
