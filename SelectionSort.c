@@ -49,6 +49,9 @@ int main(){
         else if(ans == 3){
             selectionSort(vet);
         }
+        else if(ans < 1 || ans > 4){
+            printf("Favor digitar uma opção válida!");
+        }
     } while(ans != 4);
     printf("Programa terminado!");
     return 0;
