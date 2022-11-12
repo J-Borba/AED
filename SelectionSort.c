@@ -31,28 +31,28 @@ void selectionSort(int vet[n]){
 int main(){
     int vet[10], ans;
     do{
-        printf("\n\nDigite a operacao desejada: \n[1]Preencher vetor [2]Buscar por um valor [3]Ordenar o vetor [4]Sair\n");
+        printf("\nDigite a operacao desejada: \n[1]Preencher vetor [2]Buscar por um valor [3]Ordenar o vetor [4]Sair\n");
         scanf("%d", &ans);
         if(ans == 1){
             preencher(vet);
         }
         else if(ans == 2){
             int valor;
-            printf("\nDigite o valor a ser procurado: "); scanf("%d", &valor);
+            printf("Digite o valor a ser procurado: "); scanf("%d", &valor);
             if(buscar(vet, valor) == -1){
-                printf("\nNúmero não está no vetor!\n");
+                printf("\n-------------------------\nNúmero não está no vetor!\n-------------------------");
             }
             else{
-                printf("\nNumero está na posição %d\n", buscar(vet, valor));
+                printf("\n------------------------\nNumero está na posição %d\n------------------------", buscar(vet, valor));
             }
         }
         else if(ans == 3){
             selectionSort(vet);
         }
         else if(ans < 1 || ans > 4){
-            printf("Favor digitar uma opção válida!");
+            printf("-------------------------------\nFavor digitar uma opção válida!\n-------------------------------");
         }
     } while(ans != 4);
-    printf("Programa terminado!");
+    printf("-------------------\nPrograma terminado!\n-------------------");
     return 0;
 }
